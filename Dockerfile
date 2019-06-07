@@ -17,6 +17,7 @@ COPY --from=installer /usr/bin/v2ray/geosite.dat /usr/bin/v2ray/
 COPY config.json /etc/v2ray/
 
 RUN set -ex && \
+  apk update && \
     apk add --update ca-certificates tzdata && \
     rm -rf /var/cache/apk/* && \
     mkdir /var/log/v2ray/ && \
